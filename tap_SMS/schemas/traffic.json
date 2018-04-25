@@ -1,0 +1,32 @@
+{
+	"title": "Traffic",
+  	"type": ["null", "object"],
+  	"properties": {
+  		"self": {
+      		"type": ["null", "string"],
+      		"format": "uri"
+    	},
+    	"data":{
+          	"@trafficDate": {
+            	"inclusion": "automatic",
+            	"format": "date-time",
+            	"type": [
+              	"null",
+              	"string"
+            	]
+          	},
+          	"@trafficValue": {
+            	"inclusion": "automatic",
+            	"type": [
+              	"null",
+              	"integer"
+            	]
+          	}
+           }
+        },
+        "inclusion": "available",
+        "type": [
+          "null",
+          "object"
+        ]
+}
