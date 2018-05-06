@@ -21,6 +21,20 @@
               	"null",
               	"integer"
             	]
+          	},
+          	"@trafficIn": {
+            	"inclusion": "automatic",
+            	"type": [
+              	"null",
+              	"integer"
+            	]
+          	},
+          	"@trafficOut": {
+            	"inclusion": "automatic",
+            	"type": [
+              	"null",
+              	"integer"
+            	]
           	}
            }
         },

@@ -11,7 +11,7 @@ class IDS(object):
 stream_ids = ["traffic"]
 
 pk_fields = {
-    IDS.table1: ["@trafficDate"],
+    IDS.table1: ["@trafficDate", "@storeId"],
 }
 
 def get_abs_path(path):
