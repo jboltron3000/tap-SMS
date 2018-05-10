@@ -68,7 +68,6 @@ class Client(object):
             raise RateLimitException()
         response.raise_for_status()
         response._content = convert(response._content, True).encode("ascii", "replace")
-        #pdb.set_trace()
         return response.json()
 
 

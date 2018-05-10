@@ -42,14 +42,15 @@ class Context(object):
 
     def bookmarks(self):
         if "bookmarks" not in self.state:
-            self.state["bookmarks"] = {}
+            self.state["bookmarks"] = self.state
         return self.state["bookmarks"]
 
     def bookmark(self, path):
-        #pdb.set_trace() 
         bookmark = self.bookmarks()
         for p in path:
             if p not in bookmark:
+                bookmark.clear()
+                bookmark['type'] = "STATE"
                 bookmark['traffic'] = p  
         return bookmark
 
@@ -67,6 +68,11 @@ class Context(object):
 
     def write_state(self):
         singer.write_state(self.state)
+        f = open("state.json", 'w')
+        message = self.state
+        f.write(str(message.json()))
+        f.close()
+        
         
     def write_page(self, stream_ids, page):
         title = page['TRAFFIC']
@@ -82,6 +88,3 @@ class Context(object):
         path.append(ext_time)
         self.update_start_date_bookmark(path)
             
-    def write_state(self):
-        #pdb.set_trace()
-        singer.write_state(self.state)

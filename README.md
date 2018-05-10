@@ -6,9 +6,11 @@ spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md).
 
 This tap:
 
-- Pulls raw data from [FIXME](http://example.com)
+- Pulls raw data from [Lightspeed Retail](https://www.lightspeedhq.com/) and [SMS Software](https://storetraffic.com/)
 - Extracts the following resources:
-  - [FIXME](http://example.com)
+  - [Traffic](http://help.storetraffic.com/tmas-manage-locations-web-api?from_search=22892211)
+  - [Inventory](https://developers.lightspeedhq.com/retail/tutorials/inventory/)
+  - [Order](https://developers.lightspeedhq.com/retail/endpoints/Order/)
 - Outputs the schema for each resource
 - Incrementally pulls data based on the input state
 
