@@ -8,7 +8,7 @@ import singer
 from singer import bookmarks as bks_
 from .http import Client
 from singer import metrics
-
+import json
 
 class Context(object):
     """Represents a collection of global objects necessary for performing
@@ -69,8 +69,8 @@ class Context(object):
     def write_state(self):
         singer.write_state(self.state)
         f = open("state.json", 'w')
-        message = self.state
-        f.write(str(message.json()))
+        message = json.dumps(self.state)
+        f.write(str(message))
         f.close()
         
         

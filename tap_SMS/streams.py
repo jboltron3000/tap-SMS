@@ -1,7 +1,7 @@
 import singer
 import pdb
 from .schemas import IDS
-import datetime
+import datetime 
 
 
 LOGGER = singer.get_logger()
@@ -16,7 +16,7 @@ def write_records(tap_stream_id, records):
     metrics(tap_stream_id, records)
             
 def sync_lists(ctx):
-    start_date = datetime.datetime.now() 
+    start_date =  singer.utils.strptime_with_tz(ctx.state["traffic"])
     end_date = (start_date + datetime.timedelta(-30))
     start_date = start_date.strftime('%m/%d/%Y')
     end_date = end_date.strftime('%m/%d/%Y')
