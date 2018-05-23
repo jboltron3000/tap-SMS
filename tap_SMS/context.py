@@ -74,6 +74,7 @@ class Context(object):
         
         
     def write_page(self, stream_ids, page):
+        #pdb.set_trace()
         title = page['TRAFFIC']
         data = title['data']
         ext_time = singer.utils.now()
