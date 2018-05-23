@@ -26,7 +26,6 @@ class Context(object):
         self.client = Client(config)
         self._catalog = None
         self.selected_stream_ids = None
-        self.now = datetime.utcnow()
 
     @property
     def catalog(self):
@@ -80,11 +79,13 @@ class Context(object):
         ext_time = singer.utils.now()
         path = []
         for item in data:
+            ext_time = item['@trafficDate']
+            #pdb.set_trace()
             singer.write_record(stream_ids, item)
             counter = metrics.record_counter(stream_ids)
             counter.increment(len(item))
-        ext_time = ext_time.timestamp()
-        ext_time = strict_rfc3339.timestamp_to_rfc3339_utcoffset(ext_time)
+        #ext_time = ext_time.timestamp()
+        #ext_time = strict_rfc3339.timestamp_to_rfc3339_utcoffset(ext_time)
         path.append(ext_time)
         self.update_start_date_bookmark(path)
             

@@ -10,9 +10,6 @@ import json
 import xmltodict
 
 
-class RateLimitException(Exception):
-    pass
-
 def convert(xml_file, xml_attribs=True):
     xml_file = xml_file.decode("utf-8", "replace")
     d = xmltodict.parse(xml_file)

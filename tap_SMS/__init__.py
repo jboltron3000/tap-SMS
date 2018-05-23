@@ -13,13 +13,12 @@ REQUIRED_CONFIG_KEYS = ["start_date", "access_token", "username", "password"]
 LOGGER = singer.get_logger()
 
 
-def check_credentials_are_authorized(ctx):
-    pass
-
-
+## Used to create a properties.json file to be passed 
+## through using the --catalog argument.
 def discover(ctx):
-    check_credentials_are_authorized(ctx)
     catalog = Catalog([])
+    ## Loops through each schema listed in the schemas 
+    ## folder in the tap.
     for tap_stream_id in schemas.stream_ids:
         schema = Schema.from_dict(schemas.load_schema(tap_stream_id),
                                   inclusion="automatic")
@@ -31,11 +30,13 @@ def discover(ctx):
         ))
     return catalog
 
-
+## Used when catalog argument is called. Handles the upload process. 
 def sync(ctx):
     for tap_stream_id in ctx.selected_stream_ids:
         schemas.load_and_write_schema(tap_stream_id)
+    ## See streams.py
     streams_.sync_lists(ctx)
+    ## See context.py
     ctx.write_state()
 
 
@@ -43,7 +44,6 @@ def main():
     args = utils.parse_args(REQUIRED_CONFIG_KEYS)
     ctx = Context(args.config, args.state)
     if args.discover:
-        ctx.catalog = discover(ctx)
         discover(ctx).dump()
         print()
     else:
