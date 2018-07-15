@@ -24,22 +24,22 @@ This tap:
 
    Create a JSON file called config.json. Its contents should look like:
 
-```
- 	{
-    	 "start_date": "2015-01-01T10:20:00Z", 
-	     "access_token": "1A2S3D4F5G6H7J8K9L0ZXCV",     
-	     "username": "your-T.M.A.S.-username",
-	     "password": "your-T.M.A.S.-password"
- 	}
- ```
+	```
+ 		{
+    	 	"start_date": "2015-01-01T10:20:00Z", 
+	     	"access_token": "1A2S3D4F5G6H7J8K9L0ZXCV",     
+	     	"username": "your-T.M.A.S.-username",
+	     	"password": "your-T.M.A.S.-password"
+ 		}
+ 	```
  
-    The start_date specifies the date at which the tap will begin pulling data (for those resources that support this).
+	The start_date specifies the date at which the tap will begin pulling data (for those resources that support this).
     
-    To get a token, first, login to your SMS store traffic T.M.A.S. module using this [Link](https://www.smssoftware.net/tms/).
+	To get a token, first, login to your SMS store traffic T.M.A.S. module using this [Link](https://www.smssoftware.net/tms/).
     
-    Then, open the Configure tab, choose Manage Locations, and select API Keys. ![Screenshot](screenshot.png)
+	Then, open the Configure tab, choose Manage Locations, and select API Keys. ![Screenshot](screenshot.png)
     
-    Click "Add Key" and create a new API Key. This will generate your token.
+	Click "Add Key" and create a new API Key. This will generate your token.
     
 3. Run the Tap in Discovery Mode
 
