@@ -33,13 +33,13 @@ This tap:
  	}
  ```
  
-   The start_date specifies the date at which the tap will begin pulling data (for those resources that support this).
+    The start_date specifies the date at which the tap will begin pulling data (for those resources that support this).
     
-   To get a token, first, login to your SMS store traffic T.M.A.S. module using this [Link](https://www.smssoftware.net/tms/).
+    To get a token, first, login to your SMS store traffic T.M.A.S. module using this [Link](https://www.smssoftware.net/tms/).
     
-   Then, open the Configure tab, choose Manage Locations, and select API Keys. ![Screenshot](screenshot.png)
+    Then, open the Configure tab, choose Manage Locations, and select API Keys. ![Screenshot](screenshot.png)
     
-   Click "Add Key" and create a new API Key. This will generate your token.
+    Click "Add Key" and create a new API Key. This will generate your token.
     
 3. Run the Tap in Discovery Mode
 
