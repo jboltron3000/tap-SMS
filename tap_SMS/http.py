@@ -18,7 +18,7 @@ def convert(xml_file, xml_attribs=True):
 def _join(a, b):
     return a.rstrip("/") + b.lstrip("/")
 
-TIME_BETWEEN_REQUESTS = timedelta(microseconds=10)
+TIME_BETWEEN_REQUESTS = timedelta(seconds=2)
 
 class Client(object):
     def __init__(self, config):

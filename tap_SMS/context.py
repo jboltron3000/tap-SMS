@@ -26,6 +26,7 @@ class Context(object):
         self.client = Client(config)
         self._catalog = None
         self.selected_stream_ids = None
+        self.first_time = True
 
     @property
     def catalog(self):
@@ -75,12 +76,14 @@ class Context(object):
         
     def write_page(self, stream_ids, page):
         #pdb.set_trace()
-        title = page['TRAFFIC']
-        data = title['data']
-        ext_time = singer.utils.now()
+        data = page['data']
+        ext_time = self.config['start_date']
         path = []
         for item in data:
-            ext_time = item['@trafficDate']
+            if item['@trafficDate'] >= ext_time:
+                ext_time = item['@trafficDate']
+            else:
+                pass
             #pdb.set_trace()
             singer.write_record(stream_ids, item)
             counter = metrics.record_counter(stream_ids)

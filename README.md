@@ -14,4 +14,24 @@ This tap:
 
 ---
 
+# 1. Quick Start
+
+1. Install
+
+	pip install tap-jira
+
+2. Create the config file
+
+	Create a JSON file called config.json. Its contents should look like:
+
+ 	{
+    	 "start_date": "2010-01-01",
+     	 "username": "your-jira-username",
+     	 "password": "your-jira-password",
+     	 "base_url": "https://your-jira-domain"
+ 	}
+ 	
+ 	The start_date specifies the date at which the tap will begin pulling data (for those resources that support this).
+---
+
 Copyright &copy; 2018 Stitch
