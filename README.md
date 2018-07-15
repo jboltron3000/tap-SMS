@@ -18,7 +18,7 @@ This tap:
 
 1. Install
 
-	pip install tap-jira
+	pip install tap-SMS
 
 2. Create the config file
 
@@ -26,19 +26,25 @@ This tap:
 
  	{
     	 "start_date": "2010-01-01",
+    	 
      	 "client_id" : 123456,
+     	 
          "token" : "12345689790980988976876"
  	}
  	
  	The start_date specifies the date at which the tap will begin pulling data (for those resources that support this).
-
+    
+    To get a token, first, login to your SMS store traffic T.M.A.S. module using this [Link](https://www.smssoftware.net/tms/).
+    
+    Then, open the Configure tab and choose Manage Locations. ![Screenshot](screenshot.png)
+    
 3. Run the Tap in Discovery Mode
 
     tap-SMS -c config.json --discover > properties.json
 
 4. Run the Tap in Sync Mode
 
-tap-SMS -c config.json --catalog properties.json
+tap-SMS --config config.json --catalog properties.json
 ---
 
 Copyright &copy; 2018 Stitch
