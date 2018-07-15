@@ -26,12 +26,19 @@ This tap:
 
  	{
     	 "start_date": "2010-01-01",
-     	 "username": "your-jira-username",
-     	 "password": "your-jira-password",
-     	 "base_url": "https://your-jira-domain"
+     	 "client_id" : 123456,
+         "token" : "12345689790980988976876"
  	}
  	
  	The start_date specifies the date at which the tap will begin pulling data (for those resources that support this).
+
+3. Run the Tap in Discovery Mode
+
+    tap-SMS -c config.json --discover > properties.json
+
+4. Run the Tap in Sync Mode
+
+tap-SMS -c config.json --catalog properties.json
 ---
 
 Copyright &copy; 2018 Stitch
