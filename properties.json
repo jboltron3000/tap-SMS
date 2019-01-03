@@ -1,0 +1,32 @@
+{
+  "streams": [
+    {
+      "schema": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "self": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri",
+            "inclusion": "automatic"
+          },
+          "data": {
+            "inclusion": "automatic"
+          }
+        },
+        "inclusion": "available"
+      },
+      "stream": "traffic",
+      "tap_stream_id": "traffic",
+      "key_properties": [
+        "@trafficDate",
+        "@storeId"
+      ]
+    }
+  ]
+}

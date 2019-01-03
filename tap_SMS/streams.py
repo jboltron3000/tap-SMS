@@ -15,7 +15,8 @@ def write_records(tap_stream_id, records):
             
 def sync_lists(ctx):
     end_date = singer.utils.strptime_with_tz(ctx.config['start_date'])
-    while singer.utils.now() >= (end_date + timedelta(+2)):
+    while singer.utils.now() >= (end_date + timedelta(2)):
+        #pdb.set_trace()
         if len(ctx.state) < 2 and ctx.first_time == True:
             start_date = singer.utils.strptime_with_tz(ctx.config['start_date'])
         elif len(ctx.state) < 2 and ctx.first_time == False:
@@ -23,12 +24,14 @@ def sync_lists(ctx):
         else:
             ctx.first_time = False
             start_date =  singer.utils.strptime_with_tz(ctx.state["traffic"])
-        end_date = (start_date + timedelta(+30))
+        end_date = (singer.utils.now() + timedelta(hours=-5))
+        start_date = (start_date + timedelta(-1))
         if singer.utils.now() < end_date:
             end_date = singer.utils.now() + timedelta(-1)
         start_date = start_date.strftime('%m/%d/%Y-%H|%M')
         end_date = end_date.strftime('%m/%d/%Y')
         apiKey = ctx.config['access_token']
+        #pdb.set_trace()
         url = "https://www.smssoftware.net/tms/manTrafExp?fromDate=" + str(start_date) + "&toDate=" + str(end_date) + "&interval=0&hours=0&reqType=tdd&apiKey=" + str(apiKey) + "&locationId=TLS000"
         for tap_stream_id in ctx.selected_stream_ids:
             page = ctx.client.request(tap_stream_id, "GET", url)
